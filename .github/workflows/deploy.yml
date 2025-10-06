@@ -9,6 +9,7 @@ on:
   # Permite ejecutar manualmente desde la interfaz de GitHub
   workflow_dispatch:
 
+# Configurar permisos necesarios para GitHub Pages
 permissions:
   contents: read
   pages: write
@@ -20,6 +21,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Job para construir la aplicación
   build:
     runs-on: ubuntu-latest
     
@@ -47,6 +49,7 @@ jobs:
       with:
         path: ./dist
 
+  # Job para desplegar a GitHub Pages
   deploy:
     environment:
       name: github-pages
