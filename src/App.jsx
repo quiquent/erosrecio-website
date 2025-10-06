@@ -23,6 +23,7 @@ import carlomagnoImage from './assets/carlomagno.jpg'
 import cesarDeTodoImage from './assets/cesardetodo.jpg'
 import espedanzaImage from './assets/espedanza.jpg'
 import sieteGigantesLibertadImage from './assets/siete_gigantes_libertad.jpg'
+import avalanchaDeAmorImage from './assets/avalancha_de_amor_cartel.jpg'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -349,6 +350,17 @@ function App() {
                 <div className="space-y-16">
                   {[
                     {
+                      year: '2025',
+                      title: 'AVALANCHA DE AMOR',
+                      subtitle: 'La Dana entra en escena',
+                      description: 'Un espectáculo para la esperanza. Diumenge 15 Juny 2025, SO:KU - CIM BENIMACLET, 19:30H - Entrada libre',
+                      venue: 'SO:KU - CIM BENIMACLET',
+                      date: 'Diumenge 15 Juny 2025',
+                      time: '19:30H',
+                      admission: 'Entrada libre',
+                      image: avalanchaDeAmorImage
+                    },
+                    {
                       year: '',
                       title: 'CARLOMAGNO',
                       description: 'Yo soy Europa. La vida del hombre que soñó la Unión Europea.',
@@ -410,7 +422,32 @@ function App() {
                           <span className="text-3xl font-bold gold-text mr-4">{obra.year}</span>
                           <div className="h-px bg-gradient-to-r from-primary to-transparent flex-1"></div>
                         </div>
-                        <h3 className="text-2xl font-bold mb-6 gradient-gold">{obra.title}</h3>
+                        <h3 className="text-2xl font-bold mb-4 gradient-gold">{obra.title}</h3>
+                        {obra.subtitle && (
+                          <h4 className="text-lg font-semibold mb-4 text-primary">{obra.subtitle}</h4>
+                        )}
+                        {obra.venue && (
+                          <div className="mb-4 space-y-2">
+                            <p className="text-sm font-semibold text-foreground">
+                              📍 <span className="text-primary">{obra.venue}</span>
+                            </p>
+                            {obra.date && (
+                              <p className="text-sm font-semibold text-foreground">
+                                📅 <span className="text-primary">{obra.date}</span>
+                              </p>
+                            )}
+                            {obra.time && (
+                              <p className="text-sm font-semibold text-foreground">
+                                🕰️ <span className="text-primary">{obra.time}</span>
+                              </p>
+                            )}
+                            {obra.admission && (
+                              <p className="text-sm font-semibold text-foreground">
+                                🎟️ <span className="text-primary">{obra.admission}</span>
+                              </p>
+                            )}
+                          </div>
+                        )}
                         <p className="text-lg leading-relaxed text-muted-foreground">
                           {obra.description}
                         </p>
